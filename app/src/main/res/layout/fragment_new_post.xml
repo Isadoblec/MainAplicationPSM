@@ -20,18 +20,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnToggleDrafts"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:text="Ver mis borradores guardados 📂"
+        android:textColor="#FFC107"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewPostTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDraftsCarousel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnToggleDrafts"
+        tools:listitem="@layout/item_borrador"
+        tools:visibility="visible" />
+
     <ImageView
         android:id="@+id/ivPostImagePreview"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/search_bar_backgorun"
         android:scaleType="centerCrop"
         android:src="@drawable/baseline_add_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNewPostTitle"
+        app:layout_constraintTop_toBottomOf="@+id/rvDraftsCarousel"
         app:tint="@android:color/darker_gray" />
 
     <EditText
@@ -48,10 +74,23 @@
         android:padding="8dp"
         android:textColor="@color/white"
         android:textColorHint="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@+id/btnPublishPost"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveDraft"
         app:layout_constraintEnd_toEndOf="@+id/ivPostImagePreview"
         app:layout_constraintStart_toStartOf="@+id/ivPostImagePreview"
         app:layout_constraintTop_toBottomOf="@+id/ivPostImagePreview" />
+
+    <Button
+        android:id="@+id/btnSaveDraft"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#808080"
+        android:text="Guardar Borrador (Local)"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPublishPost"
+        app:layout_constraintEnd_toEndOf="@+id/etPostDescription"
+        app:layout_constraintStart_toStartOf="@+id/etPostDescription" />
 
     <Button
         android:id="@+id/btnPublishPost"

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             val fragment = when (item.itemId) {
                 R.id.home -> MainFragment()
-                R.id.new_p -> NewForumFragment()
+                R.id.new_p -> NewPostFragment()
                 R.id.search -> ForumSearch()
                 R.id.profile -> ProfileFragment()
 
